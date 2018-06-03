@@ -9,6 +9,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "hoek": "^4.2.1",
     "vue": "^2.5.16"
   },
   "devDependencies": {
