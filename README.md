@@ -15,3 +15,4 @@ To create an image with loader and error indicator, just use this piece of code:
 - `errorColor`: Color of error indicator (default: `error`)
 - `loadingColor`: Color of loading indicator (default: `primary lighten-5`)
 - `spinnerColor`: Color of loading spinner (default: `primary lighten-1`)
+- `aspectRatio`: aspect ratio of indicators (in `x:y` format, default: `16:9`)

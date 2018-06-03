@@ -33,7 +33,6 @@ export default {
             type: String,
             required: true
         },
-        // width: Number,
         errorColor: { 
             type: String,
             default: 'error'
@@ -49,9 +48,19 @@ export default {
         errorIcon: {
             type: String,
             default: 'broken_image'
+        },
+        aspectRatio: {
+            type: String,
+            default: '16:9',
+            validator: e => !!e.match(/^\d+:\d+$/)
         }
     },
     computed: {
+        parsedAspectRatio(){
+            const [, x, y] = this.aspectRatio.match(/^(\d+):(\d+)$/)
+
+            return y/x
+        },
         className(){
             return {
                 [this.errorColor]: this.loaded && this.error,
@@ -65,7 +74,7 @@ export default {
             return this.mounted ? this.$el.offsetWidth : 0
         },
         elementHeight(){
-            return this.elementWidth * 9 / 16
+            return this.elementWidth * this.parsedAspectRatio
         },
         spinnerSize(){
             return Math.round(this.elementHeight / 8)
